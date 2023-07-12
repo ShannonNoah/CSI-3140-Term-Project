@@ -8,6 +8,14 @@ function register() {
         <div className="color-block"></div>
         <div class="form-box">
         <div className="header"><h1>Sign up</h1></div>
+        <form>
+            <label for="roles">Select an employee role:&nbsp;</label>
+            <select>
+                <option value="standard">Standard Employee</option>
+                <option value="admin">Administrator</option>
+            </select>
+            </form>
+            &nbsp;
       <form>
       
         <div class="input-group">
