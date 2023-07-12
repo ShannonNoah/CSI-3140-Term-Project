@@ -10,20 +10,27 @@ function CreateTransaction() {
       <form>
         <div class="input-group">
         &nbsp;
-        <div class="input-field">
-            <input type="text" placeholder="First Name" />
-          </div>
+        <div className="input-field">
+              <label htmlFor="startDate">Start Date:</label>
+              <input type="date" id="startDate" placeholder="Start date" />
+            </div>
+          &nbsp;
+          <div className="input-field">
+              <label htmlFor="endDate">End Date:</label>
+              <input type="date" id="endDate" placeholder="End date" />
+            </div>
+          &nbsp;
+          <div className="input-field">
+              <label htmlFor="overtime">Overtime:</label>
+              <select id="overtime" defaultValue="">
+                <option value="">Select an option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
           &nbsp;
           <div class="input-field">
-            <input type="text" placeholder="Last Name" />
-          </div>
-          &nbsp;
-          <div class="input-field">
-            <input type="number" placeholder="Overtime" />
-          </div>
-          &nbsp;
-          <div class="input-field">
-            <input type="number" placeholder="Total hours worked" />
+            <input type="number" placeholder="Period hours worked" />
           </div>
         </div>
       </form>
