@@ -10,7 +10,7 @@ function login() {
         <div class="form-box">
         <div className="header"><h1>Welcome Back!</h1></div>
         <form>
-            <label for="cars">Select an employee role:&nbsp;</label>
+            <label for="options">Select an employee role:&nbsp;</label>
             <select>
                 <option value="standard">Standard Employee</option>
                 <option value="admin">Administrator</option>
