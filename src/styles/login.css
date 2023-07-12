@@ -1,0 +1,118 @@
+
+.color-block{
+    background-image: linear-gradient(#0575E6, #021B79);
+    height: 150px;
+
+}
+
+.form-box {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    padding: 70px 60px 70px;
+    text-align: center;
+}
+
+.search{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    padding: 100px 60px 70px;
+    text-align: center;
+}
+
+.search .search-container input{
+    display: flex;
+  align-items: center;
+    border: none;
+    border-radius: 4px;
+    background: #DBDBDB;
+    padding: 10px 20px;
+    width: 800px;
+    
+}
+
+.search .search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search .search-form {
+    display: flex;
+    margin-right: 10px;
+}
+
+.search label {
+    margin-right: 5px;
+    white-space: nowrap;
+  }
+
+  .search .search-container .search-form button{
+    border: none;
+    outline:none;
+    border-radius: 4px;
+    background: #0575E6;
+    color:white;
+    cursor:pointer;
+  }
+
+
+.form-box button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    outline:none;
+    border-radius: 4px;
+    background: #0575E6;
+    color:white;
+    cursor:pointer;
+}
+
+.form-box .input-group .input-field input{
+    padding: 10px 20px;
+    border: none;
+    outline:none;
+    border-radius: 4px;
+    background: #DBDBDB;
+    color: black;
+}
+
+
+.landing .button-row {
+    flex: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 50px;
+    margin-top: 20px;
+    
+}
+
+.landing .button-row button{
+    padding: 10px 20px;
+    border: none;
+    outline:none;
+    border-radius: 4px;
+    background: #0575E6;
+    color:white;
+    cursor:pointer;
+    
+}
+.form-box .create-record button{
+    background: #0faa17;
+}
+
+.form-box .go-back button{
+    background: #e02727;
+}
+ h1{
+    text-align: center;
+}
+
+
+
+
+
+
+

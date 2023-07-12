@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import NavbarLogout from './components/NavbarLogout';
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import CreateTransaction from "./pages/CreateTransaction";
+import CreateEmployeeRecord from "./pages/CreateEmployeeRecord";
+import CreateAttendanceRecord from "./pages/CreateAttendanceRecord";
+import LandingPage from "./pages/LandingPage";
+import SearchEmployees from "./pages/SearchEmployees";
+import SearchTransactions from "./pages/SearchTransactions";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/Login" element={<Login/>}/>
+        <Route path="/Register" element={<Register/>}/>
+        <Route path="/LandingPage" element={<LandingPage/>}/>
+        <Route path="/CreateTransaction" element={<CreateTransaction/>}/>
+        <Route path="/CreateEmployeeRecord" element={<CreateEmployeeRecord/>}/>
+        <Route path="/CreateAttendanceRecord" element={<CreateAttendanceRecord/>}/>
+        <Route path="/SearchEmployees" element={<SearchEmployees/>}/>
+        <Route path="/SearchTransactions" element={<SearchTransactions/>}/>
+      </Routes>
+      </Router>
+
+
+   
     </div>
   );
 }
