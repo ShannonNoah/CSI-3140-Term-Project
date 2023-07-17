@@ -24,9 +24,9 @@ router.get('/email/:email', getUserByEmail);
 router.post('/', createUser);
 
 // DELETE a user
-router.delete(':id', deleteUser);
+router.delete('/:id', deleteUser);
 
 // UPDATE a user
-router.patch(':id', updateUser);
+router.patch('/:id', updateUser);
 
 module.exports = router;

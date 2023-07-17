@@ -69,7 +69,7 @@ const createAttendanceRecord = async (req, res) => {
             ...req.body
         });
 
-        return res.status(200).json(transaction);
+        return res.status(200).json(record);
     } catch(err) {
         console.log(err);
 
