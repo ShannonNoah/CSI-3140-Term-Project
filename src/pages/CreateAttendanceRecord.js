@@ -11,7 +11,7 @@ function CreateAttendanceRecord() {
         <div class="input-group">
         &nbsp;
         <div class="input-field">
-            <input type="text" placeholder="Employee ID" />
+            <input type="number" placeholder="Employee ID" />
           </div>
           &nbsp;
           <div class="input-field">
