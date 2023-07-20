@@ -3,6 +3,13 @@ import {Link} from 'react-router-dom';
 import '../styles/login.css'
 
 function register() {
+  function handleClick(event) {
+    event.preventDefault();
+    var els = document.getElementById("user").elements
+    for(var i = 0, element; element = els[i++];) {
+      console.log(element.name + ": " + element.value)
+    }
+  }
   return (
     <>
         <div className="color-block"></div>
@@ -16,24 +23,23 @@ function register() {
             </select>
             </form>
             &nbsp;
-      <form>
-      
+      <form id="user">
         <div class="input-group">
         <div class="input-field">
-            <input type="employeeID" placeholder="Employee ID" />
+            <input name="employeeId" type="employeeID" placeholder="Employee ID" required={true}/>
           </div>
           &nbsp;
           <div class="input-field">
-            <input type="email" placeholder="Email address" />
+            <input name="email" type="email" placeholder="Email address" required={true}/>
           </div>
           &nbsp;
           <div class="input-field">
-            <input type="password" placeholder="Password" />
+            <input name="password" type="password" placeholder="Password" required={true}/>
           </div>
         </div>
       </form>
       <Link to="/LandingPage">
-        <button>Sign Up</button>
+        <button onClick={handleClick}>Sign Up</button>
         </Link>
     </div>
     </>

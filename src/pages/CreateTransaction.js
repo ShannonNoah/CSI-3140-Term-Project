@@ -3,26 +3,37 @@ import '../styles/login.css'
 import {Link} from "react-router-dom";
 
 function CreateTransaction() {
+  function handleClick(event) {
+    event.preventDefault();
+    var els = document.getElementById("transaction").elements
+    for(var i = 0, element; element = els[i++];) {
+      console.log(element.name + ": " + element.value)
+    }
+  }
   return (<>
 <div className="color-block"></div>
   <h1>Create Transaction Record</h1>
   <div className="form-box">
-      <form>
+      <form id="transaction">
         <div class="input-group">
-        &nbsp;
-        <div className="input-field">
+          &nbsp;
+          <div className="input-field">
+            <input name="employeeId" type="number" placeholder="Employee ID" required={true}/>
+          </div>
+          &nbsp;
+          <div className="input-field">
               <label htmlFor="startDate">Start Date:</label>
-              <input type="date" id="startDate" placeholder="Start date" />
-            </div>
+              <input name="startDate" type="date" id="startDate" placeholder="Start date" required={true}/>
+          </div>
           &nbsp;
           <div className="input-field">
               <label htmlFor="endDate">End Date:</label>
-              <input type="date" id="endDate" placeholder="End date" />
+              <input name="endDate" type="date" id="endDate" placeholder="End date" required={true}/>
             </div>
           &nbsp;
           <div className="input-field">
               <label htmlFor="overtime">Overtime:</label>
-              <select id="overtime" defaultValue="">
+              <select name="overtime" id="overtime" defaultValue="" required={true}>
                 <option value="">Select an option</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
@@ -30,14 +41,22 @@ function CreateTransaction() {
             </div>
           &nbsp;
           <div class="input-field">
-            <input type="number" placeholder="Period hours worked" />
+            <input name="periodHoursWorked" type="number" placeholder="Period hours worked" required={true} />
+          </div>
+          &nbsp;
+          <div class="input-field">
+            <input name="totalHoursWorked" type="number" placeholder="Total hours worked" required={true} />
+          </div>
+          &nbsp;
+          <div class="input-field">
+            <input name="totalPaid" type="number" placeholder="Total paid" required={true} />
           </div>
         </div>
       </form>
       &nbsp;
       <div className = "create-record">
       <Link to="/CreateEmployeeRecord">
-        <button>Create Record</button>
+        <button onClick = {handleClick}>Create Record</button>
         </Link>
       </div>
 
