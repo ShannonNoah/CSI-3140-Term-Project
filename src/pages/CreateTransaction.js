@@ -6,7 +6,7 @@ function CreateTransaction() {
   return (<>
 <div className="color-block"></div>
   <h1>Create Transaction Record</h1>
-  <div class="form-box">
+  <div className="form-box">
       <form>
         <div class="input-group">
         &nbsp;

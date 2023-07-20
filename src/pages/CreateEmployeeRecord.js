@@ -38,10 +38,7 @@ function CreateEmployeeRecord() {
                 <Link to="/LandingPage">
         <button>Go Back</button>
         </Link></div>
-
-
-    </div>
-  
+  </div>
   </>)
 }
   export default CreateEmployeeRecord

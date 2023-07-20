@@ -6,7 +6,7 @@ function CreateAttendanceRecord() {
   return (<>
   <div className="color-block"></div>
   <h1>Create Attendance Record</h1>
-  <div class="form-box">
+  <div className="form-box">
       <form>
         <div class="input-group">
         &nbsp;
@@ -30,9 +30,7 @@ function CreateAttendanceRecord() {
                 <Link to="/LandingPage">
         <button>Go Back</button>
         </Link></div>
-
-
-    </div>
+  </div>
   </>)
 }
   export default CreateAttendanceRecord
