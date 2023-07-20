@@ -7,7 +7,7 @@ function CreateEmployeeRecord() {
     event.preventDefault();
     var els = document.getElementById("employee").elements
     for(var i = 0, element; element = els[i++];) {
-      console.log(element.value)
+      console.log(element.name + ": " + element.value)
     }
   }
   return (<>

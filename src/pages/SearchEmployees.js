@@ -9,7 +9,7 @@ function SearchEmployees() {
     <h1>Search Employees</h1>
     <div className="search-container">
       <form className="search-form">
-        <input type="text" placeholder="Search..." />
+        <input name="query" type="text" placeholder="Search..." />
         &nbsp;
         <button type="submit">Submit</button>
       </form>
