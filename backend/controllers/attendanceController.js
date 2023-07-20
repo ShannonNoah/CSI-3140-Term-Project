@@ -62,6 +62,25 @@ const getAttendanceRecordByType = async (req, res) => {
     }
 };
 
+// GET attendance records matching a specific date
+const getAttendanceRecordByDate = async (req, res) => {
+    const { date } = req.params;
+
+    try {
+        const records = await Attendance.find({ date: date });
+
+        if (!records) {
+            return res.status(404).json({ err: 'No matching attendance records' });
+        }
+
+        return res.status(200).json(records);
+    } catch(err) {
+        console.log(err);
+
+        return res.status(400).json({ err: err.message });
+    }
+};
+
 // POST new attendance record
 const createAttendanceRecord = async (req, res) => {
     try {

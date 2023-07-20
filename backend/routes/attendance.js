@@ -5,6 +5,7 @@ const {
     getAttendanceRecord,
     getAttendanceRecordByEmployeeId,
     getAttendanceRecordByType,
+    getAttendanceRecordByDate,
     createAttendanceRecord,
     deleteAttendanceRecord,
     updateAttendanceRecord
@@ -23,6 +24,9 @@ router.get('/employee/:employeeId', getAttendanceRecordByEmployeeId);
 
 // GET attendance records matching a specific attendance type
 router.get('/type/:type', getAttendanceRecordByType);
+
+// GET attendance records matching a specific date
+router.get('/date/:date', getAttendanceRecordByDate);
 
 // POST new attendance record
 router.post('/', createAttendanceRecord);

@@ -10,6 +10,10 @@ const AttendanceSchema = new mongoose.Schema({
         type: String,
         enum: ['Present', 'Late', 'Absent', 'Sick', 'Vacation'],
         required: true
+    },
+    date: {
+        type: Date,
+        required: true
     }
 }, {
     timestamps: true
