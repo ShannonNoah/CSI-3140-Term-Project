@@ -20,7 +20,7 @@ function CreateEmployeeRecord() {
       endDate: els[9].value
     }
 
-    await fetch("/api/employees", {
+    await fetch("/api/employees/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
