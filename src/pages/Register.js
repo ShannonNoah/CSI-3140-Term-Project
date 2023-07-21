@@ -4,8 +4,7 @@ import '../styles/login.css'
 
 function register() {
   async function handleClick(event) {
-    event.preventDefault();
-    var els = document.getElementById("employee").elements
+    var els = document.getElementById("user").elements
     const newUser = {
       email: els[0].value,
       password: els[1].value,
