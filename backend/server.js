@@ -15,18 +15,9 @@ const app = express();
 // middleware
 app.use(express.json());
 
-<<<<<<< Updated upstream
-app.use(
-    cors({
-        origin: '*',
-    })
-);
-
-=======
 app.use(cors({
     origin: 'http://localhost:3000'
 }))
->>>>>>> Stashed changes
 app.use((req, res, next) => {
     console.log(req.path, req.method);
     next();
