@@ -9,23 +9,30 @@ const employeeRoutes = require('./routes/employees');
 const correspondsToRoutes = require('./routes/correspondsTo');
 const transactionRoutes = require('./routes/transactions');
 const attendanceRoutes = require('./routes/attendance');
-
+const cors = require('cors')
 const app = express();
 
 // middleware
 app.use(express.json());
 
+<<<<<<< Updated upstream
 app.use(
     cors({
         origin: '*',
     })
 );
 
+=======
+app.use(cors({
+    origin: 'http://localhost:3000'
+}))
+>>>>>>> Stashed changes
 app.use((req, res, next) => {
     console.log(req.path, req.method);
     next();
 });
 
+app.post('/api/employees', (req, req) => console.log(req))
 // routes
 app.use('/api/users', userRoutes);
 app.use('/api/employees', employeeRoutes);

@@ -1,14 +1,29 @@
 import React from 'react'
 import '../styles/login.css'
 import {Link} from "react-router-dom";
+import axios from 'axios'
 
 function CreateAttendanceRecord() {
-  function handleClick(event) {
+  async function handleClick(event) {
     event.preventDefault();
     var els = document.getElementById("attendance").elements
+    const newAttendance = {
+      employeeId: els[0].value,
+      type: els[1].value,
+    }
+
+    await fetch("http://localhost:8000/api/attendances", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newAttendance)
+    })
+
     for(var i = 0, element; element = els[i++];) {
       console.log(element.name + ": " + element.value)
     }
+    
   }
   return (<>
   <div className="color-block"></div>
@@ -18,7 +33,7 @@ function CreateAttendanceRecord() {
         <div class="input-group">
         &nbsp;
         <div class="input-field">
-            <input name="employeeId" type="number" placeholder="Employee ID" />
+            <input name="employeeId" type="employeeID" placeholder="Employee ID" />
           </div>
           &nbsp;
           <div class="input-field">

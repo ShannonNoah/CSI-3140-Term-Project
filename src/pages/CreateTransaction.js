@@ -3,12 +3,31 @@ import '../styles/login.css'
 import {Link} from "react-router-dom";
 
 function CreateTransaction() {
-  function handleClick(event) {
+  async function handleClick(event) {
     event.preventDefault();
     var els = document.getElementById("transaction").elements
+    const newTransaction = {
+      employeeId: els[0].value,
+      startDate: els[1].value,
+      endDate: els[2].value,
+      overtime: els[3].value,
+      periodHoursWorked: els[4].value,
+      totalHoursWorked: els[5].value,
+      totalPaid: els[6].value,
+    }
+
+    await fetch("http://localhost:8000/api/transactions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTransaction)
+    })
+
     for(var i = 0, element; element = els[i++];) {
       console.log(element.name + ": " + element.value)
     }
+    
   }
   return (<>
 <div className="color-block"></div>
@@ -18,7 +37,7 @@ function CreateTransaction() {
         <div class="input-group">
           &nbsp;
           <div className="input-field">
-            <input name="employeeId" type="number" placeholder="Employee ID" required={true}/>
+            <input name="employeeId" type="employeeID" placeholder="Employee ID" required={true}/>
           </div>
           &nbsp;
           <div className="input-field">

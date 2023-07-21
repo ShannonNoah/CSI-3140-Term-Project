@@ -27,9 +27,13 @@ router.get('/first/:firstName', getEmployeeByFirstName);
 
 // GET employees based on email
 router.get('/email/:email', getEmployeeByEmail);
-
+const middle = (req, res, next) => {
+    console.log(req)
+    next()
+}
 // POST a new employee
-router.post('/', createEmployee);
+router.post('/', middle, createEmployee);
+
 
 // DELETE an employee
 router.delete('/:id', deleteEmployee);

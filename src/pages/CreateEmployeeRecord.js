@@ -1,14 +1,37 @@
 import React from 'react'
 import '../styles/login.css'
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 function CreateEmployeeRecord() {
-  function handleClick(event) {
+  async function handleClick(event) {
     event.preventDefault();
     var els = document.getElementById("employee").elements
+    const newEmployee = {
+      firstName: els[0].value,
+      lastName: els[1].value,
+      address: els[2].value,
+      dateOfBirth: els[3].value,
+      phoneNumber: els[4].value,
+      email: els[5].value,
+      SIN: els[6].value,
+      type: els[7].value,
+      startDate: els[8].value,
+      endDate: els[9].value
+    }
+
+    await fetch("/api/employees", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newEmployee)
+    })
+
     for(var i = 0, element; element = els[i++];) {
       console.log(element.name + ": " + element.value)
     }
+    
   }
   return (<>
   <div className="color-block"></div>
