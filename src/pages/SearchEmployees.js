@@ -6,16 +6,12 @@ function SearchEmployees() {
     event.preventDefault();
     const by = document.getElementById("searchBy").value
     const query = document.getElementById("query").value
-    await fetch(`/api/employees/${ by }/:${ query }`, {
+    const results = await fetch(`/api/employees/${ by }/:${ query }`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     })
-
-    for(var i = 0, element; element = els[i++];) {
-      console.log(element.name + ": " + element.value)
-    }
   }
   return (
     <>
