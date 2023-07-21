@@ -2,6 +2,21 @@ import React from 'react'
 import '../styles/login.css'
 
 function SearchEmployees() {
+  async function handleClick(event) {
+    event.preventDefault();
+    const by = document.getElementById("searchBy").value
+    const query = document.getElementById("query").value
+    await fetch(`/api/employees/${ by }/:${ query }`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+
+    for(var i = 0, element; element = els[i++];) {
+      console.log(element.name + ": " + element.value)
+    }
+  }
   return (
     <>
   <div className="color-block"></div>
@@ -11,15 +26,16 @@ function SearchEmployees() {
       <form className="search-form">
         <input name="query" type="text" placeholder="Search..." />
         &nbsp;
-        <button type="submit">Submit</button>
+        <button onClick={handleClick} type="submit">Submit</button>
       </form>
       
-      <form className="search-form">
+      <form id="by" className="search-form">
         <label htmlFor="searchBy">Search by:</label>
         <select id="searchBy">
           <option value="email">Email</option>
           <option value="employeeID">Employee ID</option>
-          <option value="name">Name</option>
+          <option value="firstName">First Name</option>
+          <option value="lastName">Last Name</option>
         </select>
       </form>
     </div>

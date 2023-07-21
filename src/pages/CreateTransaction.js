@@ -16,7 +16,7 @@ function CreateTransaction() {
       totalPaid: els[6].value,
     }
 
-    await fetch("http://localhost:8000/api/transactions", {
+    await fetch("/api/transactions/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

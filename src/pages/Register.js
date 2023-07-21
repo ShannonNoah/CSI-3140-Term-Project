@@ -11,7 +11,7 @@ function register() {
       type: document.getElementById("ty").value
     }
 
-    await fetch("http://localhost:8000/api/users", {
+    await fetch("/api/users/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

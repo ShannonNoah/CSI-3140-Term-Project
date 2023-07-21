@@ -12,7 +12,7 @@ function CreateAttendanceRecord() {
       type: els[1].value,
     }
 
-    await fetch("http://localhost:8000/api/attendances", {
+    await fetch("/api/attendance/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
