@@ -135,6 +135,7 @@ module.exports = {
     getAttendanceRecord,
     getAttendanceRecordByEmployeeId,
     getAttendanceRecordByType,
+    getAttendanceRecordByDate,
     createAttendanceRecord,
     deleteAttendanceRecord,
     updateAttendanceRecord
