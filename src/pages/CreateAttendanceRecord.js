@@ -19,10 +19,6 @@ function CreateAttendanceRecord() {
       },
       body: JSON.stringify(newAttendance)
     })
-
-    for(var i = 0, element; element = els[i++];) {
-      console.log(element.name + ": " + element.value)
-    }
     
   }
   return (<>
@@ -39,6 +35,7 @@ function CreateAttendanceRecord() {
           <div class="input-field">
             <input name="type" type="text" placeholder="Type" />
           </div>
+          &nbsp;
           <div class="input-field">
             <input name="date" type="date" placeholder="Date" />
           </div>
