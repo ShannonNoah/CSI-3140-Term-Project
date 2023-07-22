@@ -11,13 +11,13 @@ const getEmployees = async (req, res) => {
 
 // GET a single employee matching an id
 const getEmployee = async (req, res) => {
-    const { id } = req.params;
+    const { query } = req.params;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
+    if (!mongoose.Types.ObjectId.isValid(query)) {
         return res.status(404).json({ err: 'id is not valid ObjectId' });
     }
 
-    const employee = await Employee.findById(id);
+    const employee = await Employee.findById(query);
 
     if (!employee) {
         return res.status(404).json({ err: 'Employee does not exist' });
@@ -28,9 +28,9 @@ const getEmployee = async (req, res) => {
 
 // GET employees matching a last name
 const getEmployeeByLastName = async (req, res) => {
-    const { lastName } = req.params;
+    const { query } = req.params;
 
-    const employee = await Employee.find({ lastName: lastName });
+    const employee = await Employee.find({ lastName: query });
 
     if (!employee) {
         return res.status(404).json({ err: 'Employee does not exist' });
@@ -41,9 +41,9 @@ const getEmployeeByLastName = async (req, res) => {
 
 // GET employees matching a first name
 const getEmployeeByFirstName = async (req, res) => {
-    const { firstName } = req.params;
-
-    const employee = await Employee.find({ firstName: firstName });
+    const { query } = req.params;
+    console.log(query, 2);
+    const employee = await Employee.find({ firstName: query });
 
     if (!employee) {
         return res.status(404).json({ err: 'Employee does not exist' });
@@ -54,9 +54,9 @@ const getEmployeeByFirstName = async (req, res) => {
 
 // GET employees matching an email
 const getEmployeeByEmail = async (req, res) => {
-    const { email } = req.params;
+    const { query } = req.params;
 
-    const employee = await Employee.find({ email: email });
+    const employee = await Employee.find({ email: query });
 
     if (!employee) {
         return res.status(404).json({ err: 'Employee does not exist' });

@@ -12,7 +12,7 @@ const getTransactions = async (req, res) => {
 
 // GET a transaction matching an id
 const getTransaction = async (req, res) => {
-    const { id } = req.params;
+    const { query } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({ err: 'id is not valid ObjectId' });
@@ -29,7 +29,7 @@ const getTransaction = async (req, res) => {
 
 // GET all transactions matching an employeeId
 const getTransactionsByEmployeeId = async (req, res) => {
-    const { employeeId } = req.params;
+    const { query } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(employeeId)) {
         return res.status(404).json({ err: 'id is not valid ObjectId' });
@@ -46,7 +46,7 @@ const getTransactionsByEmployeeId = async (req, res) => {
 
 // GET all transactions matching a last name
 const getTransactionsByLastName = async (req, res) => {
-    const { lastName } = req.params;
+    const { query } = req.params;
     var res = [];
 
     const employeeIds = await Employee.find({ lastName: lastName })
@@ -67,23 +67,22 @@ const getTransactionsByLastName = async (req, res) => {
 
 // GET all transactions matching a first name
 const getTransactionsByFirstName = async (req, res) => {
-    const { firstName } = req.params;
+    const { query } = req.params;
     var res = [];
 
-    const employeeIds = await Employee.find({ firstName: firstName })
+    const employeeIds = (await Employee.find({ firstName: query }) ?? [])
                                 .map(x => x._id.toString());
 
     if (!employeeIds) {
         return res.status(404).json({ err: 'No matching transactions' });
     }
 
-    employeeIds.forEach(id => {
+    const response = employeeIds.map(id => {
         var transactions = Transaction.find({ employeeId: id });
-
-        res.concat(transactions);
+        return transactions;
     });
 
-    return res.status(200).json(res);
+    return res.status(200).json(response);
 };
 
 // POST a new transaction
