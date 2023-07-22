@@ -12,7 +12,7 @@ function CreateAttendanceRecord() {
       date: els[2].value
     }
 
-    await fetch("/api/attendance/", {
+    await fetch("/api/attendances/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
