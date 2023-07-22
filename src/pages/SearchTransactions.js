@@ -4,7 +4,7 @@ import { json } from 'react-router-dom';
 import '../styles/login.css'
 
 function SearchTransactions() {
-  const [by, setBy] = useState("employeeID")
+  const [by, setBy] = useState("id")
   const [data, setData] = useState(undefined)
   async function handleClick(event) {
     event.preventDefault();
@@ -15,6 +15,7 @@ function SearchTransactions() {
         "Content-Type": "application/json",
       },
     })
+    console.log(results)
     setData(await results.json())
   }
   return (<>
@@ -48,18 +49,16 @@ function SearchTransactions() {
             <th>Total Paid</th>
           </tr>
           {
-            data && (Array.isArray(data)) && (
-              data.map((e, idx) => (
-                <tr key={idx}>
-                  <td>{e._id ?? "Transaction ID Not Found"}</td>
-                  <td>{e.employeeId ?? "Employee ID Not Found"}</td>
-                  <td>{e.startDate ?? "Start Date Not Found"}</td>
-                  <td>{e.endDate ?? "End Date Not Found"}</td>
-                  <td>{e.overtime ?? "Overtime Not Found"}</td>
-                  <td>{e.periodHoursWorked ?? "Period Hours Not Found"}</td>
-                  <td>{e.totalPaid ?? "Total Paid Not Found"}</td>
+            data && (
+                <tr>
+                  <td>{data._id ?? "Transaction ID Not Found"}</td>
+                  <td>{data.employeeId ?? "Employee ID Not Found"}</td>
+                  <td>{data.startDate ?? "Start Date Not Found"}</td>
+                  <td>{data.endDate ?? "End Date Not Found"}</td>
+                  <td>{data.overtime ?? "Overtime Not Found"}</td>
+                  <td>{data.periodHoursWorked ?? "Period Hours Not Found"}</td>
+                  <td>{data.totalPaid ?? "Total Paid Not Found"}</td>
                 </tr>
-              ))
             )
           }
         </table>

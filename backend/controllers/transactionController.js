@@ -14,15 +14,16 @@ const getTransactions = async (req, res) => {
 const getTransaction = async (req, res) => {
     const { query } = req.params;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
+    if (!mongoose.Types.ObjectId.isValid(query)) {
         return res.status(404).json({ err: 'id is not valid ObjectId' });
     }
 
-    const transaction = await Transaction.findById(id);
+    const transaction = await Transaction.findById(query);
 
     if (!transaction) {
         return res.status(404).json({ err: 'Transaction does not exist' });
     }
+    console.log(transaction);
 
     return res.status(200).json(transaction);
 };
