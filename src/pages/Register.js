@@ -1,14 +1,15 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React , { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/login.css'
 
-function register() {
+function Register() {
+  const [accountType, setAccountType] = useState("Standard")
   async function handleClick(event) {
     var els = document.getElementById("user").elements
     const newUser = {
       email: els[0].value,
       password: els[1].value,
-      type: document.getElementById("ty").value
+      accountType
     }
 
     await fetch("/api/users/", {
@@ -18,42 +19,37 @@ function register() {
       },
       body: JSON.stringify(newUser)
     })
-
-    for(var i = 0, element; element = els[i++];) {
-      console.log(element.name + ": " + element.value)
-    }
-    
   }
   return (
     <>
-        <div className="color-block"></div>
-        <div class="form-box">
+      <div className="color-block"></div>
+      <div class="form-box">
         <div className="header"><h1>Sign up</h1></div>
         <form id="ty">
-            <label for="roles">Select an employee role:&nbsp;</label>
-            <select>
-                <option value="standard">Standard Employee</option>
-                <option value="admin">Administrator</option>
-            </select>
-            </form>
+          <label for="roles">Select an employee role:&nbsp;</label>
+          <select id="type" onChange={e=>setAccountType(e.target.value)}>
+            <option value="Standard">Standard Employee</option>
+            <option value="Administrator">Administrator</option>
+          </select>
+        </form>
+        &nbsp;
+        <form id="user">
+          <div class="input-group">
+            <div class="input-field">
+              <input name="email" type="email" placeholder="Email address" required={true} />
+            </div>
             &nbsp;
-      <form id="user">
-        <div class="input-group">
-          <div class="input-field">
-            <input name="email" type="email" placeholder="Email address" required={true}/>
+            <div class="input-field">
+              <input name="password" type="password" placeholder="Password" required={true} />
+            </div>
           </div>
-          &nbsp;
-          <div class="input-field">
-            <input name="password" type="password" placeholder="Password" required={true}/>
-          </div>
-        </div>
-      </form>
-      <Link to="/LandingPage">
-        <button onClick={handleClick}>Sign Up</button>
+        </form>
+        <Link to="/LandingPage">
+          <button onClick={handleClick}>Sign Up</button>
         </Link>
-    </div>
+      </div>
     </>
   )
 }
 
-export default register
+export default Register
