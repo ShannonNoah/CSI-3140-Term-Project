@@ -1,7 +1,6 @@
 import React from 'react'
 import '../styles/login.css'
 import {Link} from "react-router-dom";
-import axios from 'axios'
 
 function CreateAttendanceRecord() {
   async function handleClick(event) {
@@ -10,19 +9,16 @@ function CreateAttendanceRecord() {
     const newAttendance = {
       employeeId: els[0].value,
       type: els[1].value,
+      date: els[2].value
     }
 
-    await fetch("http://localhost:8000/api/attendances", {
+    await fetch("/api/attendances/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newAttendance)
     })
-
-    for(var i = 0, element; element = els[i++];) {
-      console.log(element.name + ": " + element.value)
-    }
     
   }
   return (<>
@@ -38,6 +34,10 @@ function CreateAttendanceRecord() {
           &nbsp;
           <div class="input-field">
             <input name="type" type="text" placeholder="Type" />
+          </div>
+          &nbsp;
+          <div class="input-field">
+            <input name="date" type="date" placeholder="Date" />
           </div>
         </div>
       </form>

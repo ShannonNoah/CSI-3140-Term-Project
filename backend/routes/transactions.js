@@ -17,16 +17,16 @@ const router = express.Router();
 router.get('/', getTransactions);
 
 // GET a transaction matching an id
-router.get('/id/:id', getTransaction);
+router.get('/id/:query', getTransaction);
 
 // GET all transactions matching an employeeId
-router.get('/employee/:employeeId', getTransactionsByEmployeeId);
+router.get('/employee/:query', getTransactionsByEmployeeId);
 
 // GET all transactions matching a last name
-router.get('/last/:lastName', getTransactionsByLastName);
+router.get('/last/:query', getTransactionsByLastName);
 
 // GET all transactions matching a first name
-router.get('/first/:firstName', getTransactionsByFirstName);
+router.get('/first/:query', getTransactionsByFirstName);
 
 // POST a new transaction
 router.post('/', createTransaction);

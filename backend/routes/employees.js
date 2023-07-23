@@ -17,22 +17,26 @@ const router = express.Router();
 router.get('/', getEmployees);
 
 // GET a single employee
-router.get('/id/:id', getEmployee);
+router.get('/id/:query', getEmployee);
 
 // GET employees based on last name
-router.get('/last/:lastName', getEmployeeByLastName);
+router.get('/last/:query', getEmployeeByLastName);
 
 // GET employees based on first name
-router.get('/first/:firstName', getEmployeeByFirstName);
+router.get('/first/:query', getEmployeeByFirstName);
 
 // GET employees based on email
-router.get('/email/:email', getEmployeeByEmail);
+router.get('/email/:query', getEmployeeByEmail);
+
+/*
 const middle = (req, res, next) => {
     console.log(req)
     next()
 }
+*/
+
 // POST a new employee
-router.post('/', middle, createEmployee);
+router.post('/', createEmployee);
 
 
 // DELETE an employee
